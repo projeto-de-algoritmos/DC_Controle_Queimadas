@@ -2,6 +2,7 @@ import time
 import numpy as np
 import math
 
+
 def apresentaIntroducao():
     print("Bem vindo ao sistema de monitoramento de incêndios de Nova Iorque!")
     time.sleep(1)
