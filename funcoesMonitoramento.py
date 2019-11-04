@@ -34,6 +34,13 @@ def converteDadosJsonParaDicionario(json_object, focosIncendio):
         focosIncendio[foco['Fire Number']]['tipo de propriedade'] = foco['Ownership']
     return focosIncendio
 
+def montaDicionarioPontosPosicoes(json_object, posicoes):
+    for foco in json_object:
+        posicoes[foco['Fire Number']] = []
+        posicoes[foco['Fire Number']].append(foco['Longitude'])
+        posicoes[foco['Fire Number']].append(foco['Latitude'])
+    return posicoes
+
 def realizarMonitoramento(focosIncendio):
     focosIncendioOrdenadoPorX = sorted(focosIncendio.items(), key=lambda x: x[1]['x'])
     focosIncendioOrdenadoPorY = sorted(focosIncendio.items(), key=lambda x: x[1]['y'])
