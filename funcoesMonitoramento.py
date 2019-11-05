@@ -34,6 +34,14 @@ def converteDadosJsonParaDicionario(json_object, focosIncendio):
         focosIncendio[foco['Fire Number']]['tipo de propriedade'] = foco['Ownership']
     return focosIncendio
 
+def montaListaCor(json_object, p1, p2, colorMap):
+    for foco in json_object:
+        if p1[0] == foco or p2[0] == foco:
+            colorMap.append('black')
+        else:
+            colorMap.append('red')
+    return colorMap
+
 def montaDicionarioPontosPosicoes(json_object, posicoes):
     for foco in json_object:
         posicoes[foco['Fire Number']] = []

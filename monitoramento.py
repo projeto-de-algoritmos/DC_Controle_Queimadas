@@ -46,13 +46,10 @@ def main():
                                         
                                 else:
                                         os.system("clear")
+                                        colorMap = []
+                                        colorMap = montaListaCor(focosIncendio, p1, p2, colorMap)
                                         fig1 = plt.figure('NYC - Focos de Incêndio', figsize=(10,7))
-                                        plt.xlabel('Longitude')
-                                        plt.ylabel('Latitude')
-                                        plt.axis('on')
-                                        nx.draw_networkx(G, posicoes, nodelist=focosIncedio, node_color = 'red', node_size=1, with_labels=True)
-                                        # nx.draw(G, pos, nodelist=caminho, with_labels=True, node_color = 'red', edge_color = listaCorAresta, width = listaLarguraAresta, font_size = 6, font_color='white')
-                                        # nx.draw_networkx_edge_labels(G, pos, edge_labels = dictLabelAresta)
+                                        nx.draw(G, posicoes, nodelist=focosIncedio, node_color = colorMap, node_size=10, with_labels=True)
                                         fig1.set_facecolor("#2E8B57")
                                         plt.show()
                                         print("Há focos de Incêndio muito próximos! " ,"\033[1;31m RISCO ALTO DE PROPAGAÇÃO\033[0m")
@@ -83,8 +80,8 @@ def main():
                                         del focosIncedio[p1[0]], focosIncedio[p2[0]]
                                         time.sleep(1.5)
                                         print("\033[1;34mSituação controlada!\033[0m")
-                                        time.sleep(0.5)
-                                        plt.pause(4) 
+                                        input("\033[1;34mPressione ENTER para seguir para os próximos focos!\033[0m")
+                                        #plt.pause(3) 
                                         plt.close()
                                         propagacoes+=1
 
